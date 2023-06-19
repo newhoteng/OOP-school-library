@@ -27,9 +27,9 @@ my_person1 = Person.new(20)
 my_person2 = Person.new(4)
 
 # puts my_person1.of_age?
-puts my_person1.can_use_services?
+# puts my_person1.can_use_services?
 
 # puts my_person2.of_age?
-puts my_person2.can_use_services?
+# puts my_person2.can_use_services?
 
-puts my_person1.id
+# puts my_person1.id
