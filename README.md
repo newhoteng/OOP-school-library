@@ -68,7 +68,7 @@ To run the project, execute the following command:<br>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## :telescope: Future Features <a name="future-features"></a>
-  - Add methods to classes
+  - Add more class methods
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
