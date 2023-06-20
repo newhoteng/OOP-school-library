@@ -32,6 +32,10 @@ OOP-school-library is a ruby project to learn Object Oriented Programming
   - `Person` class
   - `Student` class
   - `Teacher` class
+  - `Nameable` class
+  - `Decorator` class
+  - `CapitalizeDecorator` class
+  - `TrimmerDecorator` class
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -68,6 +72,7 @@ To run the project, execute the following command:<br>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## :telescope: Future Features <a name="future-features"></a>
+  - Add more classes
   - Add more class methods
 
 
