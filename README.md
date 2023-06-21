@@ -36,6 +36,9 @@ OOP-school-library is a ruby project to learn Object Oriented Programming
   - `Decorator` class
   - `CapitalizeDecorator` class
   - `TrimmerDecorator` class
+  - `Classromm` class
+  - `Book` class
+  - `Rental` class
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
