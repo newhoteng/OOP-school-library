@@ -3,10 +3,9 @@
 # require './trimmer'
 require_relative 'student'
 
-
-creating name, age, nil, parent_permission/age, nil, name, permission
-student name, age, classroom, parent_permission/age, name, classroom, permission
-person name, age, parent_permission/age, name, parent_permission
+creating name, age, nil, parent_permission / age, nil, name, permission
+student name, age, classroom, parent_permission / age, name, classroom, permission
+person name, age, parent_permission / age, name, parent_permission
 
 # person = Person.new(22, 'maximilianus')
 # p person.correct_name

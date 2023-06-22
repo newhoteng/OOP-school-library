@@ -13,6 +13,3 @@ class Book
     Rental.new(date, self, person)
   end
 end
-
-# my_book = Book.new("Game", "Harriet")
-# p my_book

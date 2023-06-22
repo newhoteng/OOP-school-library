@@ -42,10 +42,7 @@ def main
     select_option(selected, app)
   end
   puts 'Thank you for using this app!'
+  puts "\n"
 end
 
 main
-
-def main()
-
-end

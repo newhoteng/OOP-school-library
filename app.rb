@@ -18,66 +18,66 @@ class App
   end
 
   def list_books
-    @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}"}
+    @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
   end
 
   def list_people
-    @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"}
+    @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   end
 
   def create_person
     number = nil
-    until (number == 1 or number == 2)
-      print "Do you want to create a student (1) or a teacher (2)? [Input the number]: " 
+    until [1, 2].include?(number)
+      print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
       number = gets.chomp.to_i
     end
 
     age = 0
-    until (age != 0)
-      print "Age: "
+    until age != 0
+      print 'Age: '
       age = gets.chomp.to_i
     end
 
-    print "Name: "
+    print 'Name: '
     name = gets.chomp
 
     if number == 1
       parent_permission = nil
-      until (parent_permission == 'n' || parent_permission == 'y')
-        print "Has parent permission? [Y/N]: "
+      until %w[n y].include?(parent_permission)
+        print 'Has parent permission? [Y/N]: '
         parent_permission = gets.chomp.downcase
       end
 
       case parent_permission
       when 'n'
-        student = Student.new(age, name, nil, parent_permission: false)
+        student = Student.new(age, nil, name, parent_permission: false)
         @people << student
         # p student
       when 'n'
-        student = Student.new(age, name, nil, parent_permission: true)
+        student = Student.new(age, nil, name, parent_permission: true)
         @people << student
         # p student
       end
     elsif number == 2
-      print "Specialization: "
+      print 'Specialization: '
       specialization = gets.chomp
-      teacher = Teacher.new(age, name, specialization)
+      teacher = Teacher.new(age, specialization, name)
       @people << teacher
       # p teacher
     end
-    puts "Person created successfully"
+    puts 'Person created successfully'
     puts "\n"
   end
 
   def create_book
-    print "Title: " 
+    print 'Title: '
     title = gets.chomp
-    print "Author: "
+    print 'Author: '
     author = gets.chomp
     book = Book.new(title, author)
-    @book << book
+    @books << book
     # p book
-    puts "Book created successfully"
+    puts 'Book created successfully'
     puts "\n"
   end
 
@@ -85,35 +85,34 @@ class App
     return if @books.empty? || @people.empty?
 
     puts 'Select a book from the following list by number'
-    @books.each_with_index { |book, index| puts "#{index}) Title: #{book.title}, Author: #{book.author}" }
+    @books.each_with_index { |book, index| puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}" }
     book = gets.chomp.to_i
-    put "\n"
+    puts "\n"
 
     puts 'Select a person from the following list by number (not ide)'
-    @people.each_with_index { |person, index| puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
     person = gets.chomp.to_i
-    put "\n"
+    puts "\n"
 
-    print "Date: "
+    print 'Date: '
     date = gets.chomp
 
     rented_book = Rental.new(date, @books[book], @people[person])
     @rentals << rented_book
 
-    puts "Rental created successfully"
+    puts 'Rental created successfully'
     puts "\n"
   end
 
   def list_rental
-    print "ID of person: "
-    person_id = gets.chomp
+    print 'ID of person: '
+    person_id = gets.chomp.to_i
 
-    puts "Rentals:"
+    puts 'Rentals:'
     @rentals.each do |rent|
-      puts "Date: #{rent.date}, Book #{rent.book.title} by #{rent.book.author}" if rent.person.id == person_id
+      puts "Date: #{rent.date}, Book \"#{rent.book.title}\" by #{rent.book.author}" if rent.person.id == person_id
     end
   end
-
 end
-
-
