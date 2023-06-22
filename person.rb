@@ -34,6 +34,3 @@ class Person < Nameable
     @name
   end
 end
-
-# person = Person.new(22, 'maximilianus')
-# p person

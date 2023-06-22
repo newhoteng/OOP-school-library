@@ -17,7 +17,3 @@ class Student < Person
     '"¯\(ツ)/¯"'
   end
 end
-
-# student1 = Student.new(12, 'Harriet', nil, parent_permission: false)
-# p student1
-# p student1.class

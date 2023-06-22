@@ -4,8 +4,6 @@ require_relative 'book'
 require_relative 'rental'
 
 class App
-  attr_reader :books, :person, :rentals
-
   def initialize
     @books = []
     @people = []
@@ -20,36 +18,31 @@ class App
     @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   end
 
-  def create_person
-    number = nil
-    until [1, 2].include?(number)
-      print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-      number = gets.chomp.to_i
+  def create_student(age, _classroon, name, parent_permission)
+    case parent_permission
+    when 'n'
+      student = Student.new(age, nil, name, parent_permission: false)
+      @people << student
+    when 'y'
+      student = Student.new(age, nil, name, parent_permission: true)
+      @people << student
     end
+  end
 
-    age = 0
-    until age != 0
-      print 'Age: '
-      age = gets.chomp.to_i
-    end
+  def create_person
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    number = gets.chomp.to_i
+
+    print 'Age: '
+    age = gets.chomp.to_i
 
     print 'Name: '
     name = gets.chomp
 
     if number == 1
-      parent_permission = nil
-      until %w[n y].include?(parent_permission)
-        print 'Has parent permission? [Y/N]: '
-        parent_permission = gets.chomp.downcase
-      end
-      case parent_permission
-      when 'n'
-        student = Student.new(age, nil, name, parent_permission: false)
-        @people << student
-      when 'y'
-        student = Student.new(age, nil, name, parent_permission: true)
-        @people << student
-      end
+      print 'Has parent permission? [Y/N]: '
+      parent_permission = gets.chomp.downcase
+      create_student(age, nil, name, parent_permission)
     elsif number == 2
       print 'Specialization: '
       specialization = gets.chomp

@@ -10,7 +10,3 @@ class Teacher < Person
     true
   end
 end
-
-# teacher = Teacher.new(45, 'Harriet', 'English')
-# p teacher
-# p teacher.class
