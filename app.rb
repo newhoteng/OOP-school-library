@@ -9,6 +9,8 @@ require_relative 'rental'
 # require './rental'
 
 class App
+  attr_reader :books, :person, :rentals
+
   def initialize
     @books = []
     @people = []

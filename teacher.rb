@@ -11,6 +11,6 @@ class Teacher < Person
   end
 end
 
-teacher = Teacher.new(45, 'Harriet', 'English')
-p teacher
-p teacher.class
+# teacher = Teacher.new(45, 'Harriet', 'English')
+# p teacher
+# p teacher.class

@@ -14,5 +14,5 @@ class Book
   end
 end
 
-my_book = Book.new("Game", "Harriet")
-p my_book
+# my_book = Book.new("Game", "Harriet")
+# p my_book
