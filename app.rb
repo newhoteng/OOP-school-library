@@ -1,8 +1,10 @@
 require_relative 'student'
 require_relative 'teacher'
+require_relative 'book'
 
-require './student'
-require './teacher'
+# require './student'
+# require './teacher'
+# require './book'
 
 class App
   def initialize
@@ -41,26 +43,35 @@ class App
       when 'n'
         student = Student.new(age, name, nil, parent_permission: false)
         # @people << student
-        p student
+        # p student
       when 'n'
         student = Student.new(age, name, nil, parent_permission: true)
         # @people << student
-        p student
+        # p student
       end
     elsif number == 2
       print "Specialization: "
       specialization = gets.chomp
       teacher = Teacher.new(age, name, specialization)
       # @people << teacher
-      p teacher
+      # p teacher
     end
     puts "Person created successfully"
     puts "\n"
   end
 
   def create_book
+    print "Title: " 
+    title = gets.chomp
+    print "Author: "
+    author = gets.chomp
+    book = Book.new(title, author)
+    # @book << book
+    # p book
+    puts "Book created successfully"
+    puts "\n"
   end
 
 end
 
-create_a_person()
+
