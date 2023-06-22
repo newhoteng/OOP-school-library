@@ -98,6 +98,16 @@ class App
     puts "\n"
   end
 
+  def list_rental
+    print "ID of person: "
+    person_id = gets.chomp
+
+    puts "Rentals:"
+    @rentals.each do |rent|
+      puts "Date: #{rent.date}, Book #{rent.book.title} by #{rent.book.author}" if rent.person.id == person_id
+    end
+  end
+
 end
 
 
