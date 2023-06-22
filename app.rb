@@ -3,11 +3,6 @@ require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
 
-# require './student'
-# require './teacher'
-# require './book'
-# require './rental'
-
 class App
   attr_reader :books, :person, :rentals
 
@@ -47,23 +42,19 @@ class App
         print 'Has parent permission? [Y/N]: '
         parent_permission = gets.chomp.downcase
       end
-
       case parent_permission
       when 'n'
         student = Student.new(age, nil, name, parent_permission: false)
         @people << student
-        # p student
-      when 'n'
+      when 'y'
         student = Student.new(age, nil, name, parent_permission: true)
         @people << student
-        # p student
       end
     elsif number == 2
       print 'Specialization: '
       specialization = gets.chomp
       teacher = Teacher.new(age, specialization, name)
       @people << teacher
-      # p teacher
     end
     puts 'Person created successfully'
     puts "\n"
@@ -76,7 +67,6 @@ class App
     author = gets.chomp
     book = Book.new(title, author)
     @books << book
-    # p book
     puts 'Book created successfully'
     puts "\n"
   end

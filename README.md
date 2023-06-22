@@ -39,6 +39,7 @@ OOP-school-library is a ruby project to learn Object Oriented Programming
   - `Classromm` class
   - `Book` class
   - `Rental` class
+  - Basic UI to run `school library`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
