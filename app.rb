@@ -1,10 +1,12 @@
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
+require_relative 'rental'
 
 # require './student'
 # require './teacher'
 # require './book'
+# require './rental'
 
 class App
   def initialize
@@ -13,10 +15,11 @@ class App
     @rentals = []
   end
 
-  def list_all_books
+  def list_books
+    @books
   end
 
-  def create_a_person
+  def create_person
     number = nil
     until (number == 1 or number == 2)
       print "Do you want to create a student (1) or a teacher (2)? [Input the number]: " 
@@ -42,18 +45,18 @@ class App
       case parent_permission
       when 'n'
         student = Student.new(age, name, nil, parent_permission: false)
-        # @people << student
+        @people << student
         # p student
       when 'n'
         student = Student.new(age, name, nil, parent_permission: true)
-        # @people << student
+        @people << student
         # p student
       end
     elsif number == 2
       print "Specialization: "
       specialization = gets.chomp
       teacher = Teacher.new(age, name, specialization)
-      # @people << teacher
+      @people << teacher
       # p teacher
     end
     puts "Person created successfully"
@@ -66,9 +69,32 @@ class App
     print "Author: "
     author = gets.chomp
     book = Book.new(title, author)
-    # @book << book
+    @book << book
     # p book
     puts "Book created successfully"
+    puts "\n"
+  end
+
+  def create_rental
+    return if @books.empty? || @people.empty?
+
+    puts 'Select a book from the following list by number'
+    @books.each_with_index { |book, index| puts "#{index}) Title: #{book.title}, Author: #{book.author}" }
+    book = gets.chomp.to_i
+    put "\n"
+
+    puts 'Select a person from the following list by number (not ide)'
+    @people.each_with_index { |person, index| puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+    person = gets.chomp.to_i
+    put "\n"
+
+    print "Date: "
+    date = gets.chomp
+
+    rented_book = Rental.new(date, @books[book], @people[person])
+    @rentals << rented_book
+
+    puts "Rental created successfully"
     puts "\n"
   end
 
