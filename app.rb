@@ -42,6 +42,7 @@ class App
     if number == 1
       print 'Has parent permission? [Y/N]: '
       parent_permission = gets.chomp.downcase
+      #Use create_student function
       create_student(age, nil, name, parent_permission)
       # binding.pry
     elsif number == 2
