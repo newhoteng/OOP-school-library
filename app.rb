@@ -21,10 +21,10 @@ class App
   def create_student(age, _classroon, name, parent_permission)
     case parent_permission
     when 'n'
-      student = Student.new(age, nil, name, parent_permission: false)
+      student = Student.new(age, name, parent_permission: false)
       @people << student
     when 'y'
-      student = Student.new(age, nil, name, parent_permission: true)
+      student = Student.new(age, name, parent_permission: true)
       @people << student
     end
   end
