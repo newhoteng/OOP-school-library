@@ -73,6 +73,12 @@ To run the project, execute the following command:<br>
 - Twitter: [@twitterhandle](https://twitter.com/HarrietOteng1)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/harriet-oteng/)
 
+👤 **Seyi Oyemade**
+
+- GitHub: [@seyioyemade](https://github.com/seyioyemade)
+- Twitter: [@seyi_oyemade](https://twitter.com/@seyi_oyemade)
+- LinkedIn: [Seyi Oyemade](https://www.linkedin.com/in/seyi-oyemade)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## :telescope: Future Features <a name="future-features"></a>
