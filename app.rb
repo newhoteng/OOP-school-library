@@ -2,14 +2,54 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
+require 'json'
 
 class App
+  attr_accessor :books, :people, :rentals
+
   def initialize
     @books = []
     @people = []
     @rentals = []
   end
 
+  # Load data from database
+
+  def fetch_data(file)
+    if File.exist?("data/#{file}.json")
+      File.read("data/#{file}.json")
+    else
+      empty_json = [].to_json
+      File.write("data/#{file}.json", empty_json)
+      empty_json
+    end
+  end
+
+  def load_data
+    books = JSON.parse(fetch_data('books'))
+    people = JSON.parse(fetch_data('people'))
+    rentals = JSON.parse(fetch_data('rentals'))
+
+    books.each do |book|
+      @books << Book.new(book['title'], book['author'])
+    end
+
+    people.each do |person|
+      @people << if person['type'] == 'Teacher'
+                   Teacher.new(person['age'], person['specialization'], person['name'], parent_permission: true)
+                 else
+                   Student.new(person['age'], nil, person['name'], parent_permission: person['parent_permission'])
+                 end
+    end
+
+    rentals.each do |rental|
+      rentee = @people.select { |person| person.name == rental['person_name'] }
+      rented_book = @books.select { |book| book.title == rental['book_titles'] }
+      @rentals << Rental.new(rental['date'], rented_book[0], rentee[0])
+    end
+  end
+
+  # UIs
   def list_books
     @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
   end
@@ -98,4 +138,6 @@ class App
       puts "Date: #{rent.date}, Book \"#{rent.book.title}\" by #{rent.book.author}" if rent.person.id == person_id
     end
   end
+
+  # Save to database
 end
