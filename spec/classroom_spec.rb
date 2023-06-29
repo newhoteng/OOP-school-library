@@ -6,19 +6,19 @@ describe Classroom do
     @classroom = Classroom.new('Grade 8')
   end
 
-  describe '#new' do
+  describe 'create a new Classroom object' do
     it 'takes one parameters and returns a Classroom object' do
       expect(@classroom).to be_instance_of Classroom
     end
   end
 
-  describe '#label' do
+  describe '.label' do
     it 'returns the correct label' do
       expect(@classroom.label).to eql 'Grade 8'
     end
   end
 
-  describe '#students' do
+  describe '.students' do
     it 'has an array of students' do
       expect(@classroom).to have_attributes(students: [])
     end

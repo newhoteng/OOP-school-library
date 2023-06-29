@@ -3,8 +3,8 @@ require_relative '../student'
 require_relative '../book'
 
 describe Rental do
-  context 'Check Teacher creating tasks' do
-    it 'should create a Teacher' do
+  context 'A student renting a book' do
+    it 'should update persons rental array' do
       person = Student.new(15, nil, 'Kyei')
       book = Book.new('Game of Thrones', 'George Martins')
       rental = Rental.new('2023/06/28', book, person)

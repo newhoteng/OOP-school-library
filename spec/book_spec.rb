@@ -6,25 +6,25 @@ describe Book do
     @book = Book.new 'Game of Thrones', 'George Martin'
   end
 
-  describe '#new' do
+  describe 'creating a Book object' do
     it 'takes two parameters and returns a Book object' do
       expect(@book).to be_instance_of Book
     end
   end
 
-  describe '#title' do
+  describe '.title' do
     it 'returns the correct title' do
       expect(@book.title).to eql 'Game of Thrones'
     end
   end
 
-  describe '#author' do
+  describe '.author' do
     it 'returns the correct author' do
       expect(@book.author).to eql 'George Martin'
     end
   end
 
-  describe '#rentals' do
+  describe '.rentals' do
     it 'has a rentals array' do
       expect(@book).to have_attributes(rentals: [])
     end

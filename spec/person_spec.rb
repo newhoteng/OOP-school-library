@@ -5,25 +5,25 @@ describe Person do
     @person = Person.new(23, 'Harriet')
   end
 
-  describe '#new' do
+  describe 'create a new Person object' do
     it 'takes two parameters and returns a Person object' do
       expect(@person).to be_instance_of Person
     end
   end
 
-  describe '#age' do
+  describe '.age' do
     it 'returns the correct age' do
       expect(@person.age).to eql 23
     end
   end
 
-  describe '#name' do
+  describe '.name' do
     it 'returns the correct name' do
       expect(@person.name).to eql 'Harriet'
     end
   end
 
-  describe '#rentals' do
+  describe '.rentals' do
     it 'has a rentals array' do
       expect(@person).to have_attributes(rentals: [])
     end
