@@ -1,35 +1,35 @@
 require_relative '../teacher'
 
 describe Teacher do
-  before :each do
+  before :all do
     @teacher = Teacher.new(45, 'Home Economics', 'Barbara')
   end
 
-  describe '#new' do
+  describe 'Create Teacher object' do
     it 'takes three parameters and returns a Teacher object' do
       expect(@teacher).to be_instance_of Teacher
     end
   end
 
-  describe '#age' do
+  describe '.age' do
     it 'returns the correct age' do
       expect(@teacher.age).to eql 45
     end
   end
 
-  describe '#specialization' do
+  describe '.specialization' do
     it 'returns the correct specialization' do
       expect(@teacher.specialization).to eql 'Home Economics'
     end
   end
 
-  describe '#name' do
+  describe '.name' do
     it 'returns the correct name' do
       expect(@teacher.name).to eql 'Barbara'
     end
   end
 
-  describe '#rentals' do
+  describe '.rentals' do
     it 'has a rentals array from inheriting from Person class' do
       expect(@teacher).to have_attributes(rentals: [])
     end

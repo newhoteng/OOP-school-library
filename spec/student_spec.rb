@@ -5,31 +5,31 @@ describe Student do
     @student = Student.new(9, nil, 'Austin')
   end
 
-  describe '#new' do
+  describe 'Create a new Student object' do
     it 'takes three parameters and returns a Student object' do
       expect(@student).to be_instance_of Student
     end
   end
 
-  describe '#age' do
+  describe '.age' do
     it 'returns the correct age' do
       expect(@student.age).to eql 9
     end
   end
 
-  describe '#classroom' do
+  describe '.classroom' do
     it 'returns the correct classroom' do
       expect(@student.classroom).to be_nil
     end
   end
 
-  describe '#name' do
+  describe '.name' do
     it 'returns the correct name' do
       expect(@student.name).to eql 'Austin'
     end
   end
 
-  describe '#rentals' do
+  describe '.rentals' do
     it 'has a rentals array from inheriting from Person class' do
       expect(@student).to have_attributes(rentals: [])
     end
