@@ -20,4 +20,12 @@ describe 'Decorators' do
       expect(trimmed_person.correct_name).to eq 'maximilian'
     end
   end
+
+  describe '#trimmer' do
+    it 'returns a name trimmed to 10 characters long if was initially longer' do
+      capitalized_person = CapitalizeDecorator.new(@person)
+      trimmed_person = TrimmerDecorator.new(capitalized_person)
+      expect(trimmed_person.correct_name).to eq 'Maximilian'
+    end
+  end
 end
