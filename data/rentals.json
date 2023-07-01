@@ -1,17 +1,27 @@
 [
   {
     "person_name": "Doctor",
-    "book_titles": "Lord of the Rings",
+    "book_title": "Lord of the Rings",
     "date": "2020/05/04"
   },
   {
     "person_name": "Doctor",
-    "book_titles": "Game of Thrones",
+    "book_title": "Game of Thrones",
     "date": "2021/06/10"
   },
   {
     "person_name": "Mic",
-    "book_titles": "Game of Thrones",
+    "book_title": "Game of Thrones",
     "date": "2023/08/05"
+  },
+  {
+    "person_name": "Sly",
+    "book_title": "Mine",
+    "date": "2023/07/01"
+  },
+  {
+    "person_name": "Yaa",
+    "book_title": "Game of Thrones",
+    "date": "2021/09/02"
   }
 ]

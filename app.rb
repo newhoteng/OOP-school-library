@@ -36,16 +36,16 @@ class App
 
     people.each do |person|
       @people << if person['type'] == 'Teacher'
-                   Teacher.new(person['age'], person['specialization'], person['name'], parent_permission: true)
+                   Teacher.new(person['age'], person['specialization'], person['name'])
                  else
                    Student.new(person['age'], nil, person['name'], parent_permission: person['parent_permission'])
                  end
     end
 
     rentals.each do |rental|
-      rentee = @people.select { |person| person.name == rental['person_name'] }
-      rented_book = @books.select { |book| book.title == rental['book_titles'] }
-      @rentals << Rental.new(rental['date'], rented_book[0], rentee[0])
+      rentee = @people.find { |person| person.name == rental['person_name'] }
+      rented_book = @books.select { |book| book.title == rental['book_title'] }
+      @rentals << Rental.new(rental['date'], rented_book[0], rentee)
     end
   end
 
@@ -112,7 +112,7 @@ class App
     book = gets.chomp.to_i
     puts "\n"
 
-    puts 'Select a person from the following list by number (not ide)'
+    puts 'Select a person from the following list by number (not id)'
     @people.each_with_index do |person, index|
       puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
@@ -170,7 +170,7 @@ class App
     updated_rentals = []
 
     @rentals.each do |rental|
-      updated_rentals << { 'person_name' => rental.person.name, 'book_titles' => rental.book.title,
+      updated_rentals << { 'person_name' => rental.person.name, 'book_title' => rental.book.title,
                            'date' => rental.date }
     end
 
